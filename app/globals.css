@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────
+   BITC University — Design System (Tailwind v4)
+   Brand: Navy #0A1628  |  Gold #C9A84C
+   NOTE: Google Fonts loaded via <link> in layout.tsx
+────────────────────────────────────────── */
+
+@theme inline {
+  /* Brand Colors */
+  --color-navy-950: #050d18;
+  --color-navy-900: #0a1628;
+  --color-navy-800: #0d1f3c;
+  --color-navy-700: #112550;
+  --color-navy-600: #1a3a6e;
+  --color-navy-500: #234c91;
+  --color-navy-400: #3b6bba;
+  --color-navy-300: #6893d0;
+  --color-navy-200: #a3bfe5;
+  --color-navy-100: #dce8f5;
+  --color-navy-50:  #f0f5fb;
+
+  --color-gold-900: #5a3a00;
+  --color-gold-800: #7a5000;
+  --color-gold-700: #9e6900;
+  --color-gold-600: #b8820a;
+  --color-gold-500: #c9a84c;
+  --color-gold-400: #d4b96a;
+  --color-gold-300: #e0cc96;
+  --color-gold-200: #ecddb8;
+  --color-gold-100: #f5edda;
+  --color-gold-50:  #fdf8ee;
+
+  /* Semantic tokens */
+  --color-primary:        var(--color-navy-900);
+  --color-primary-light:  var(--color-navy-700);
+  --color-accent:         var(--color-gold-500);
+  --color-accent-light:   var(--color-gold-300);
+
+  /* Typography */
+  --font-sans:    "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+/* ──── Performance: Promote layers early ──── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Smooth scrolling — native, no JS needed */
+  scroll-behavior: smooth;
+  /* Prevent layout shifts from scrollbar appearing */
+  scrollbar-gutter: stable;
+
+  /* Font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a2e;
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+  /* Prevent horizontal overflow — critical for mobile */
+  overflow-x: hidden;
+  /* Smooth momentum scroll on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ──── Reduced motion support ──── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ticker-track {
+    animation: none !important;
+  }
+}
+
+/* ──── Custom Scrollbar ──── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f5fb;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a3a6e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a84c;
+}
+
+/* ──── Selection ──── */
+::selection {
+  background: #c9a84c;
+  color: #0a1628;
+}
+
+/* ──── Font Utilities ──── */
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ──── Section gold divider ──── */
+.section-divider {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a84c, #e0cc96);
+  border-radius: 2px;
+  /* centered by default; use mx-0 to left-align */
+  margin: 0 auto 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ──── Notice Ticker animation ──── */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: ticker-scroll 45s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ──── Card hover lift ──── */
+.card-lift {
+  transition: transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1),
+              box-shadow 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px -8px rgba(10, 22, 40, 0.18);
+}
+
+/* ──── Section scroll margin — accounts for sticky navbar + ticker ──── */
+section[id],
+div[id] {
+  scroll-margin-top: 112px; /* 64px navbar + 40px ticker + 8px buffer */
+}
+
+/* ──── Program card flip ──── */
+.flip-card {
+  perspective: 1200px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1rem;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ──── Focus ring ──── */
+:focus-visible {
+  outline: 2px solid #c9a84c;
+  outline-offset: 3px;
+}
+
+/* ──── Mobile: prevent tap highlight ──── */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ──── Image optimization ──── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ──── Responsive utility ──── */
+@media (max-width: 640px) {
+  .section-divider {
+    width: 44px;
+    height: 3px;
+    margin-bottom: 1rem;
+  }
+}
