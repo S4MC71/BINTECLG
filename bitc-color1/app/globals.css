@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════
+   BITC University — Lite Academic Professional
+   Design System v2 (Tailwind v4)
+
+   Brand:
+     Primary   Deep Academic Green  #065F46
+     Secondary Tech Navy Blue       #1E3A8A
+     Accent    Crimson Red          #DC2626
+   Surfaces:
+     Pure White   #FFFFFF
+     Lite Grey    #F8FAFC
+     Card Border  #E2E8F0
+   Typography:
+     Dark Slate   #1E293B
+     Muted        #64748B
+══════════════════════════════════════════════ */
+
+@theme inline {
+  /* ── Primary Brand — Deep Academic Green ── */
+  --color-primary:          #065F46;
+  --color-primary-hover:    #044331;
+  --color-primary-light:    #D1FAE5;
+  --color-primary-muted:    #ECFDF5;
+
+  /* ── Secondary Brand — Tech Navy Blue ── */
+  --color-secondary:        #1E3A8A;
+  --color-secondary-hover:  #172B6B;
+  --color-secondary-light:  #DBEAFE;
+  --color-secondary-muted:  #EFF6FF;
+
+  /* ── CTA / Accent — Crimson Red ── */
+  --color-accent:           #DC2626;
+  --color-accent-hover:     #B91C1C;
+  --color-accent-light:     #FEE2E2;
+  --color-accent-muted:     #FEF2F2;
+
+  /* ── Surfaces ── */
+  --color-surface:          #FFFFFF;
+  --color-surface-alt:      #F8FAFC;
+  --color-border:           #E2E8F0;
+  --color-border-dark:      #CBD5E1;
+
+  /* ── Typography ── */
+  --color-text:             #1E293B;
+  --color-text-muted:       #64748B;
+  --color-text-light:       #94A3B8;
+
+  /* ── Dark footer ── */
+  --color-footer-bg:        #111827;
+  --color-footer-subtle:    #1F2937;
+
+  /* ── Legacy mappings (kept for Badge / utility compatibility) ── */
+  --color-navy-900:         #1E3A8A;
+  --color-navy-800:         #172B6B;
+  --color-navy-50:          #EFF6FF;
+  --color-gold-500:         #065F46;
+
+  /* ── Typography ── */
+  --font-sans:    "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+/* ──── CSS Custom Properties (for inline style usage) ──── */
+:root {
+  --primary-green:        #065F46;
+  --primary-green-hover:  #044331;
+  --secondary-navy:       #1E3A8A;
+  --secondary-navy-hover: #172B6B;
+  --accent-red:           #DC2626;
+  --accent-red-hover:     #B91C1C;
+  --bg-pure-white:        #FFFFFF;
+  --bg-lite-grey:         #F8FAFC;
+  --bg-card-border:       #E2E8F0;
+  --text-dark-slate:      #1E293B;
+  --text-muted:           #64748B;
+}
+
+/* ══════════════════════════════════════════════
+   Global Base
+══════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: #FFFFFF;
+  color: #1E293B;
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ──── Reduced motion ──── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ticker-track { animation: none !important; }
+}
+
+/* ──── Custom scrollbar ──── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: #F8FAFC; }
+::-webkit-scrollbar-thumb  { background: #1E3A8A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #065F46; }
+
+/* ──── Selection ──── */
+::selection { background: #065F46; color: #fff; }
+
+/* ──── Focus ring ──── */
+:focus-visible { outline: 2px solid #065F46; outline-offset: 3px; }
+
+/* ──── Tap highlight ──── */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* ══════════════════════════════════════════════
+   Typography
+══════════════════════════════════════════════ */
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ══════════════════════════════════════════════
+   Section Divider — now Green
+══════════════════════════════════════════════ */
+
+.section-divider {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #065F46, #34d399);
+  border-radius: 2px;
+  margin: 0 auto 1.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .section-divider {
+    width: 44px;
+    height: 3px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Notice Ticker
+══════════════════════════════════════════════ */
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: ticker-scroll 45s linear infinite;
+}
+
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ══════════════════════════════════════════════
+   Card helpers
+══════════════════════════════════════════════ */
+
+.card-lift {
+  transition: transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1),
+              box-shadow  0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px -8px rgba(6, 95, 70, 0.12);
+}
+
+/* ══════════════════════════════════════════════
+   Flip Card (Programs)
+══════════════════════════════════════════════ */
+
+.flip-card { perspective: 1200px; }
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner { transform: rotateY(180deg); }
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1rem;
+}
+.flip-card-back { transform: rotateY(180deg); }
+
+/* ══════════════════════════════════════════════
+   Scroll margin — accounts for sticky navbar + ticker
+══════════════════════════════════════════════ */
+
+section[id], div[id] { scroll-margin-top: 112px; }
+
+img { max-width: 100%; height: auto; }
