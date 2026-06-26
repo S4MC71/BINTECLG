@@ -37,26 +37,26 @@ const steps = [
 export default function AdmissionsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
+      {/* Hero — dark green + crimson red CTA */}
       <div
         className="py-24 text-white text-center"
-        style={{ background: "linear-gradient(135deg, #0A1628 0%, #112550 100%)" }}
+        style={{ background: "linear-gradient(135deg, #011a0e 0%, #022c16 50%, #004D2C 100%)" }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C] mb-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#F0D060] mb-4">
             Admissions 2025–26
           </span>
           <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
             Begin Your Journey at BITC
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-green-200 text-lg max-w-2xl mx-auto mb-8">
             Join a community of over 5,000 alumni. Apply now for Session 2025–26.
           </p>
           <a
             href="http://admissions.nu.ac.bd/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A84C] text-[#0A1628] font-bold rounded-xl hover:bg-[#d4b96a] transition-colors shadow-lg text-base"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#C41E1E] text-white font-bold rounded-xl hover:bg-[#9B1515] transition-colors shadow-lg text-base"
           >
             Apply Online via NU Portal <ExternalLink size={16} />
           </a>
@@ -71,10 +71,10 @@ export default function AdmissionsPage() {
             title="Eligibility & Guidelines"
             subtitle="Review the admission requirements for each program before applying."
           />
-          <div className="overflow-x-auto rounded-2xl border border-gray-100 shadow-sm">
+          <div className="overflow-x-auto rounded-2xl border border-[#006B3C]/15 shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#0A1628] text-white">
+                <tr className="bg-[#004D2C] text-white">
                   <th className="text-left px-6 py-4">Program</th>
                   <th className="text-left px-6 py-4">Degree Type</th>
                   <th className="text-left px-6 py-4">Requirements</th>
@@ -83,11 +83,11 @@ export default function AdmissionsPage() {
               </thead>
               <tbody>
                 {eligibilityData.map((row, i) => (
-                  <tr key={row.program} className={i % 2 === 0 ? "bg-white" : "bg-[#f0f5fb]"}>
-                    <td className="px-6 py-4 font-bold text-[#C9A84C]">{row.program}</td>
-                    <td className="px-6 py-4 text-gray-600">{row.degree}</td>
-                    <td className="px-6 py-4 text-gray-600">{row.requirement}</td>
-                    <td className="px-6 py-4 text-center font-semibold text-[#0A1628]">{row.seats}</td>
+                  <tr key={row.program} className={i % 2 === 0 ? "bg-white" : "bg-[#e8f5ee]"}>
+                    <td className="px-6 py-4 font-bold text-[#D4A820]">{row.program}</td>
+                    <td className="px-6 py-4 text-[#5a6a60]">{row.degree}</td>
+                    <td className="px-6 py-4 text-[#5a6a60]">{row.requirement}</td>
+                    <td className="px-6 py-4 text-center font-semibold text-[#004D2C]">{row.seats}</td>
                   </tr>
                 ))}
               </tbody>
@@ -97,17 +97,17 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Fees */}
-      <section className="py-20 bg-[#f0f5fb]">
+      <section className="py-20 bg-[#f2faf6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Fees & Scholarships"
             title="Fee Structure 2025–26"
             subtitle="Transparent, affordable fees with multiple scholarship opportunities available."
           />
-          <div className="overflow-x-auto rounded-2xl border border-gray-100 shadow-sm mb-10">
+          <div className="overflow-x-auto rounded-2xl border border-[#006B3C]/15 shadow-sm mb-10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#0A1628] text-white">
+                <tr className="bg-[#004D2C] text-white">
                   <th className="text-left px-6 py-4">Program</th>
                   <th className="text-center px-6 py-4">Admission Fee (BDT)</th>
                   <th className="text-center px-6 py-4">Per Semester (BDT)</th>
@@ -117,12 +117,12 @@ export default function AdmissionsPage() {
               </thead>
               <tbody>
                 {feesData.map((row, i) => (
-                  <tr key={row.program} className={i % 2 === 0 ? "bg-white" : "bg-[#f0f5fb]"}>
-                    <td className="px-6 py-4 font-bold text-[#C9A84C]">{row.program}</td>
-                    <td className="px-6 py-4 text-center text-gray-600">৳{row.admissionFee}</td>
-                    <td className="px-6 py-4 text-center text-gray-600">৳{row.semesterFee}</td>
-                    <td className="px-6 py-4 text-center text-gray-600">৳{row.totalYear}</td>
-                    <td className="px-6 py-4 text-center text-gray-600">{row.years} Year(s)</td>
+                  <tr key={row.program} className={i % 2 === 0 ? "bg-white" : "bg-[#e8f5ee]"}>
+                    <td className="px-6 py-4 font-bold text-[#D4A820]">{row.program}</td>
+                    <td className="px-6 py-4 text-center text-[#5a6a60]">৳{row.admissionFee}</td>
+                    <td className="px-6 py-4 text-center text-[#5a6a60]">৳{row.semesterFee}</td>
+                    <td className="px-6 py-4 text-center text-[#5a6a60]">৳{row.totalYear}</td>
+                    <td className="px-6 py-4 text-center text-[#5a6a60]">{row.years} Year(s)</td>
                   </tr>
                 ))}
               </tbody>
@@ -136,12 +136,12 @@ export default function AdmissionsPage() {
               { title: "Need-Based Grant", desc: "Financial assistance for students from economically disadvantaged backgrounds.", badge: "Up to 100%" },
               { title: "Sports Quota", desc: "Special fee concession for nationally recognized athletes and sports persons.", badge: "25% Waiver" },
             ].map((s) => (
-              <div key={s.title} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <div className="inline-block px-3 py-1 bg-[#C9A84C] text-[#0A1628] text-xs font-bold rounded-full mb-4">
+              <div key={s.title} className="bg-white rounded-2xl p-6 border border-[#006B3C]/10 shadow-sm">
+                <div className="inline-block px-3 py-1 bg-[#006B3C] text-white text-xs font-bold rounded-full mb-4">
                   {s.badge}
                 </div>
-                <h3 className="font-display text-lg font-bold text-[#0A1628] mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-600">{s.desc}</p>
+                <h3 className="font-display text-lg font-bold text-[#004D2C] mb-2">{s.title}</h3>
+                <p className="text-sm text-[#5a6a60]">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -158,14 +158,14 @@ export default function AdmissionsPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {steps.map((s) => (
-              <div key={s.step} className="relative bg-[#f0f5fb] rounded-2xl p-6 border border-gray-100 card-lift">
-                <div className="font-display text-4xl font-bold text-[#C9A84C]/30 mb-3">
+              <div key={s.step} className="relative bg-[#e8f5ee] rounded-2xl p-6 border border-[#006B3C]/15 card-lift">
+                <div className="font-display text-4xl font-bold text-[#006B3C]/20 mb-3">
                   {s.step}
                 </div>
-                <h3 className="font-display text-base font-bold text-[#0A1628] mb-2">
+                <h3 className="font-display text-base font-bold text-[#004D2C] mb-2">
                   {s.title}
                 </h3>
-                <p className="text-sm text-gray-600">{s.desc}</p>
+                <p className="text-sm text-[#5a6a60]">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -176,7 +176,7 @@ export default function AdmissionsPage() {
               href="http://admissions.nu.ac.bd/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-[#0A1628] text-white font-bold text-lg rounded-2xl hover:bg-[#112550] transition-colors shadow-xl"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[#006B3C] text-white font-bold text-lg rounded-2xl hover:bg-[#004D2C] transition-colors shadow-xl"
             >
               Apply Online via National University Portal
               <ExternalLink size={20} />
@@ -185,8 +185,8 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
-      {/* Admission Desk */}
-      <section className="py-20 bg-[#0A1628] text-white">
+      {/* Admission Desk — darkest green */}
+      <section className="py-20 bg-[#022c16] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <SectionHeader
             eyebrow="Need Help?"
@@ -200,9 +200,9 @@ export default function AdmissionsPage() {
               { icon: Phone, label: "Alternative", value: "+880 1800-000000" },
               { icon: Mail, label: "Email", value: "admission@bitc.edu.bd" },
             ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="bg-white/10 rounded-2xl p-5">
-                <Icon size={24} className="text-[#C9A84C] mx-auto mb-3" />
-                <p className="text-xs text-gray-400 mb-1">{label}</p>
+              <div key={label} className="bg-white/10 rounded-2xl p-5 border border-white/10">
+                <Icon size={24} className="text-[#D4A820] mx-auto mb-3" />
+                <p className="text-xs text-green-300/60 mb-1">{label}</p>
                 <p className="font-semibold text-white">{value}</p>
               </div>
             ))}

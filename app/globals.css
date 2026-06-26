@@ -2,44 +2,53 @@
 
 /* ──────────────────────────────────────────
    BITC University — Design System (Tailwind v4)
-   Brand: Navy #0A1628  |  Gold #C9A84C
+   Brand: Forest Green #006B3C | Crimson Red #C41E1E | Golden Yellow #D4A820
    NOTE: Google Fonts loaded via <link> in layout.tsx
 ────────────────────────────────────────── */
 
 @theme inline {
-  /* Brand Colors */
-  --color-navy-950: #050d18;
-  --color-navy-900: #0a1628;
-  --color-navy-800: #0d1f3c;
-  --color-navy-700: #112550;
-  --color-navy-600: #1a3a6e;
-  --color-navy-500: #234c91;
-  --color-navy-400: #3b6bba;
-  --color-navy-300: #6893d0;
-  --color-navy-200: #a3bfe5;
-  --color-navy-100: #dce8f5;
-  --color-navy-50:  #f0f5fb;
+  /* BITC Brand Colors — Green */
+  --color-bitc-green:        #006B3C;
+  --color-bitc-green-dark:   #004D2C;
+  --color-bitc-green-deep:   #022c16;
+  --color-bitc-green-light:  #e8f5ee;
 
-  --color-gold-900: #5a3a00;
-  --color-gold-800: #7a5000;
-  --color-gold-700: #9e6900;
-  --color-gold-600: #b8820a;
-  --color-gold-500: #c9a84c;
-  --color-gold-400: #d4b96a;
-  --color-gold-300: #e0cc96;
-  --color-gold-200: #ecddb8;
-  --color-gold-100: #f5edda;
-  --color-gold-50:  #fdf8ee;
+  /* BITC Brand Colors — Red */
+  --color-bitc-red:          #C41E1E;
+  --color-bitc-red-dark:     #9B1515;
+
+  /* BITC Brand Colors — Gold */
+  --color-bitc-gold:         #D4A820;
+  --color-bitc-gold-light:   #F0D060;
+  --color-bitc-gold-muted:   #B8912A;
+
+  /* Surface */
+  --color-surface:           #f2faf6;
+  --color-surface-alt:       #e8f5ee;
 
   /* Semantic tokens */
-  --color-primary:        var(--color-navy-900);
-  --color-primary-light:  var(--color-navy-700);
-  --color-accent:         var(--color-gold-500);
-  --color-accent-light:   var(--color-gold-300);
+  --color-primary:        var(--color-bitc-green);
+  --color-primary-dark:   var(--color-bitc-green-dark);
+  --color-primary-deep:   var(--color-bitc-green-deep);
+  --color-accent:         var(--color-bitc-gold);
+  --color-cta:            var(--color-bitc-red);
 
   /* Typography */
   --font-sans:    "Inter", system-ui, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
+}
+
+/* CSS Variables for inline usage */
+:root {
+  --bitc-green:       #006B3C;
+  --bitc-green-dark:  #004D2C;
+  --bitc-green-deep:  #022c16;
+  --bitc-green-light: #e8f5ee;
+  --bitc-red:         #C41E1E;
+  --bitc-red-dark:    #9B1515;
+  --bitc-gold:        #D4A820;
+  --bitc-gold-light:  #F0D060;
+  --bitc-gold-muted:  #B8912A;
 }
 
 /* ──── Performance: Promote layers early ──── */
@@ -61,7 +70,7 @@ html {
 
 body {
   background: #ffffff;
-  color: #1a1a2e;
+  color: #1a2e22;
   font-family: "Inter", system-ui, sans-serif;
   line-height: 1.6;
   /* Prevent horizontal overflow — critical for mobile */
@@ -91,20 +100,20 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f0f5fb;
+  background: #f0faf5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a3a6e;
+  background: #006B3C;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c9a84c;
+  background: #D4A820;
 }
 
 /* ──── Selection ──── */
 ::selection {
-  background: #c9a84c;
-  color: #0a1628;
+  background: #006B3C;
+  color: #ffffff;
 }
 
 /* ──── Font Utilities ──── */
@@ -116,7 +125,7 @@ body {
 .section-divider {
   width: 56px;
   height: 3px;
-  background: linear-gradient(90deg, #c9a84c, #e0cc96);
+  background: linear-gradient(90deg, #D4A820, #F0D060);
   border-radius: 2px;
   /* centered by default; use mx-0 to left-align */
   margin: 0 auto 1.25rem;
@@ -148,7 +157,7 @@ body {
 }
 .card-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 48px -8px rgba(10, 22, 40, 0.18);
+  box-shadow: 0 16px 48px -8px rgba(0, 77, 44, 0.18);
 }
 
 /* ──── Section scroll margin — accounts for sticky navbar + ticker ──── */
@@ -187,7 +196,7 @@ div[id] {
 
 /* ──── Focus ring ──── */
 :focus-visible {
-  outline: 2px solid #c9a84c;
+  outline: 2px solid #D4A820;
   outline-offset: 3px;
 }
 

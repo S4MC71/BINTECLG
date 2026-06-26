@@ -1,15 +1,14 @@
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: "gold" | "navy" | "green" | "red" | "gray";
+  variant?: "gold" | "green" | "red" | "gray";
   size?: "sm" | "md";
 }
 
 const variantClasses = {
-  gold: "bg-[#fdf8ee] text-[#9e6900] border border-[#e0cc96]",
-  navy: "bg-[#f0f5fb] text-[#0A1628] border border-[#a3bfe5]",
-  green: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-  red: "bg-red-50 text-red-700 border border-red-200",
-  gray: "bg-gray-100 text-gray-600 border border-gray-200",
+  gold:  "bg-[#fdf8ee] text-[#B8912A] border border-[#D4A820]/40",
+  green: "bg-[#e8f5ee] text-[#006B3C] border border-[#006B3C]/30",
+  red:   "bg-red-50 text-[#9B1515] border border-[#C41E1E]/30",
+  gray:  "bg-gray-100 text-gray-600 border border-gray-200",
 };
 
 const sizeClasses = {
@@ -19,7 +18,7 @@ const sizeClasses = {
 
 export default function Badge({
   children,
-  variant = "navy",
+  variant = "green",
   size = "md",
 }: BadgeProps) {
   return (

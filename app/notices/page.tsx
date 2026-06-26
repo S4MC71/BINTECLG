@@ -9,8 +9,8 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const CATEGORIES: NoticeCategory[] = ["Exam", "Result", "Holiday", "General", "Admission", "Urgent"];
 
-const categoryBadgeMap: Record<NoticeCategory, "gold" | "navy" | "green" | "red" | "gray"> = {
-  Exam: "navy",
+const categoryBadgeMap: Record<NoticeCategory, "gold" | "green" | "red" | "gray"> = {
+  Exam: "green",
   Result: "green",
   Holiday: "gold",
   General: "gray",
@@ -32,19 +32,19 @@ export default function NoticesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
+      {/* Hero — dark green */}
       <div
         className="py-24 text-white text-center"
-        style={{ background: "linear-gradient(135deg, #0A1628 0%, #112550 100%)" }}
+        style={{ background: "linear-gradient(135deg, #011a0e 0%, #022c16 50%, #004D2C 100%)" }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C] mb-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#F0D060] mb-4">
             Notice Board
           </span>
           <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
             Official Notice Board
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-green-200 text-lg max-w-2xl mx-auto">
             Stay up-to-date with the latest announcements, exam schedules, and results.
           </p>
         </div>
@@ -62,25 +62,25 @@ export default function NoticesPage() {
           {/* Search & Filter */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <div className="relative flex-1">
-              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5a6a60]" />
               <input
                 type="text"
                 placeholder="Search notices..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/40 focus:border-[#C9A84C]"
+                className="w-full pl-11 pr-4 py-3 border border-[#006B3C]/20 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#006B3C]/30 focus:border-[#006B3C]"
               />
             </div>
             <div className="flex items-center gap-2 flex-wrap">
-              <Filter size={16} className="text-gray-400" />
+              <Filter size={16} className="text-[#5a6a60]" />
               {(["All", ...CATEGORIES] as const).map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
                     activeCategory === cat
-                      ? "bg-[#0A1628] text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      ? "bg-[#006B3C] text-white"
+                      : "bg-[#e8f5ee] text-[#5a6a60] hover:bg-[#006B3C]/20"
                   }`}
                 >
                   {cat}
@@ -91,7 +91,7 @@ export default function NoticesPage() {
 
           {/* Notice list */}
           {filtered.length === 0 ? (
-            <div className="text-center py-16 text-gray-400">
+            <div className="text-center py-16 text-[#5a6a60]">
               <FileText size={40} className="mx-auto mb-3 opacity-30" />
               <p>No notices found matching your search.</p>
             </div>
@@ -103,19 +103,19 @@ export default function NoticesPage() {
                   className={`flex items-start gap-4 p-5 rounded-2xl border transition-all duration-200 hover:shadow-md ${
                     notice.isUrgent
                       ? "border-red-100 bg-red-50/50"
-                      : "border-gray-100 bg-white hover:border-gray-200"
+                      : "border-[#006B3C]/10 bg-white hover:border-[#006B3C]/20"
                   }`}
                 >
                   {notice.isUrgent && (
-                    <AlertCircle size={20} className="text-red-400 flex-shrink-0 mt-0.5" />
+                    <AlertCircle size={20} className="text-[#C41E1E] flex-shrink-0 mt-0.5" />
                   )}
                   {!notice.isUrgent && (
-                    <FileText size={20} className="text-[#C9A84C] flex-shrink-0 mt-0.5" />
+                    <FileText size={20} className="text-[#D4A820] flex-shrink-0 mt-0.5" />
                   )}
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-3 mb-1.5">
-                      <h3 className="font-semibold text-[#0A1628] text-sm leading-snug">
+                      <h3 className="font-semibold text-[#004D2C] text-sm leading-snug">
                         {notice.title}
                       </h3>
                       <Badge variant={categoryBadgeMap[notice.category] || "gray"} size="sm">
@@ -123,12 +123,12 @@ export default function NoticesPage() {
                       </Badge>
                     </div>
                     {notice.description && (
-                      <p className="text-xs text-gray-500 leading-relaxed mb-2 line-clamp-2">
+                      <p className="text-xs text-[#5a6a60] leading-relaxed mb-2 line-clamp-2">
                         {notice.description}
                       </p>
                     )}
                     <div className="flex items-center gap-4">
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-[#5a6a60]/60">
                         {new Date(notice.date).toLocaleDateString("en-BD", {
                           day: "numeric",
                           month: "long",
@@ -138,7 +138,7 @@ export default function NoticesPage() {
                       {notice.fileUrl && (
                         <a
                           href={notice.fileUrl}
-                          className="flex items-center gap-1 text-xs text-[#C9A84C] font-semibold hover:underline"
+                          className="flex items-center gap-1 text-xs text-[#D4A820] font-semibold hover:text-[#B8912A] hover:underline"
                         >
                           <Download size={12} /> Download
                         </a>
@@ -153,19 +153,19 @@ export default function NoticesPage() {
       </section>
 
       {/* NU Official Notices */}
-      <section className="py-20 bg-[#f0f5fb]">
+      <section className="py-20 bg-[#f2faf6]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="National University"
             title="NU Official Notices"
             subtitle="Important notices from the National University of Bangladesh."
           />
-          <div className="bg-[#0A1628] rounded-2xl p-8 text-white text-center">
+          <div className="bg-[#022c16] rounded-2xl p-8 text-white text-center">
             <div className="text-4xl mb-4">🏛️</div>
             <h3 className="font-display text-xl font-bold mb-3">
               National University Official Notice Board
             </h3>
-            <p className="text-gray-400 text-sm mb-6 max-w-lg mx-auto">
+            <p className="text-green-300/70 text-sm mb-6 max-w-lg mx-auto">
               For official NU announcements including results, exam schedules, registration dates,
               and university-level directives, please visit the NU official website.
             </p>
@@ -174,7 +174,7 @@ export default function NoticesPage() {
                 href="https://www.nu.ac.bd/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#C9A84C] text-[#0A1628] font-bold rounded-xl hover:bg-[#d4b96a] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4A820] text-[#022c16] font-bold rounded-xl hover:bg-[#F0D060] transition-colors"
               >
                 NU Notice Board <ExternalLink size={15} />
               </a>
@@ -182,7 +182,7 @@ export default function NoticesPage() {
                 href="http://results.nu.ac.bd/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-semibold rounded-xl hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-semibold rounded-xl hover:border-[#D4A820] hover:text-[#F0D060] transition-colors"
               >
                 Check Results <ExternalLink size={15} />
               </a>

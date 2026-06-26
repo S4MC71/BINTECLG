@@ -38,19 +38,19 @@ const galleryItems = [
 export default function CampusLifePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
+      {/* Hero — dark green gradient */}
       <div
         className="py-24 text-white text-center"
-        style={{ background: "linear-gradient(135deg, #0A1628 0%, #1e6b5f 100%)" }}
+        style={{ background: "linear-gradient(135deg, #011a0e 0%, #022c16 50%, #006B3C 100%)" }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C] mb-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#F0D060] mb-4">
             Campus Life
           </span>
           <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
             Life at BITC
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-green-200 text-lg max-w-2xl mx-auto">
             Beyond academics — a vibrant campus experience with modern facilities, exciting clubs, and a supportive community.
           </p>
         </div>
@@ -66,12 +66,12 @@ export default function CampusLifePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {facilities.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-[#f0f5fb] rounded-2xl p-6 border border-gray-100 card-lift group">
-                <div className="w-12 h-12 rounded-xl bg-[#0A1628] flex items-center justify-center mb-4 group-hover:bg-[#C9A84C] transition-colors duration-300">
-                  <Icon size={22} className="text-[#C9A84C] group-hover:text-[#0A1628] transition-colors duration-300" />
+              <div key={title} className="bg-[#e8f5ee] rounded-2xl p-6 border border-[#006B3C]/15 card-lift group">
+                <div className="w-12 h-12 rounded-xl bg-[#006B3C] flex items-center justify-center mb-4 group-hover:bg-[#D4A820] transition-colors duration-300">
+                  <Icon size={22} className="text-white" />
                 </div>
-                <h3 className="font-display text-base font-bold text-[#0A1628] mb-2">{title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                <h3 className="font-display text-base font-bold text-[#004D2C] mb-2">{title}</h3>
+                <p className="text-sm text-[#5a6a60] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -79,7 +79,7 @@ export default function CampusLifePage() {
       </section>
 
       {/* Clubs */}
-      <section className="py-20 bg-[#f0f5fb]">
+      <section className="py-20 bg-[#f2faf6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Student Clubs"
@@ -88,17 +88,17 @@ export default function CampusLifePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clubs.map(({ icon: Icon, name, tag, desc }) => (
-              <div key={name} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-lift">
+              <div key={name} className="bg-white rounded-2xl p-6 shadow-sm border border-[#006B3C]/10 card-lift">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#0A1628] flex items-center justify-center">
-                    <Icon size={18} className="text-[#C9A84C]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#004D2C] flex items-center justify-center">
+                    <Icon size={18} className="text-[#D4A820]" />
                   </div>
                   <div>
-                    <div className="font-bold text-[#0A1628] text-sm">{name}</div>
-                    <div className="text-[10px] text-[#C9A84C] font-semibold uppercase tracking-wide">{tag}</div>
+                    <div className="font-bold text-[#004D2C] text-sm">{name}</div>
+                    <div className="text-[10px] text-[#006B3C] font-semibold uppercase tracking-wide">{tag}</div>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                <p className="text-sm text-[#5a6a60] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -126,19 +126,19 @@ export default function CampusLifePage() {
           </div>
 
           {/* Video placeholder */}
-          <div className="bg-[#0A1628] rounded-2xl h-64 flex flex-col items-center justify-center text-white">
-            <Video size={40} className="text-[#C9A84C] mb-3" />
+          <div className="bg-[#022c16] rounded-2xl h-64 flex flex-col items-center justify-center text-white">
+            <Video size={40} className="text-[#D4A820] mb-3" />
             <h3 className="font-display text-lg font-bold mb-2">BITC Campus Tour 2024</h3>
-            <p className="text-gray-400 text-sm mb-4">Watch our official campus tour video</p>
-            <button className="px-6 py-2.5 bg-[#C9A84C] text-[#0A1628] font-bold rounded-xl hover:bg-[#d4b96a] transition-colors">
+            <p className="text-green-300/70 text-sm mb-4">Watch our official campus tour video</p>
+            <button className="px-6 py-2.5 bg-[#D4A820] text-[#022c16] font-bold rounded-xl hover:bg-[#F0D060] transition-colors">
               ▶ Watch Video
             </button>
           </div>
         </div>
       </section>
 
-      {/* Student Welfare */}
-      <section className="py-20 bg-[#0A1628] text-white">
+      {/* Student Welfare — darkest green */}
+      <section className="py-20 bg-[#022c16] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Welfare"
@@ -153,9 +153,9 @@ export default function CampusLifePage() {
               { title: "Mental Health Support", desc: "Confidential counseling services and mental health workshops to help students manage stress and maintain well-being." },
               { title: "Financial Aid", desc: "A student welfare fund provides emergency financial assistance to students facing unexpected hardships." },
             ].map((item) => (
-              <div key={item.title} className="bg-white/10 rounded-2xl p-6 border border-white/10">
-                <h3 className="font-display text-lg font-bold text-[#C9A84C] mb-2">{item.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+              <div key={item.title} className="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-[#D4A820]/30 transition-colors">
+                <h3 className="font-display text-lg font-bold text-[#D4A820] mb-2">{item.title}</h3>
+                <p className="text-green-200/80 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

@@ -16,7 +16,7 @@ export default function EventsNews() {
   const filtered = events.filter((e) => e.type === activeTab);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[#f2faf6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Stay Updated"
@@ -32,8 +32,8 @@ export default function EventsNews() {
               onClick={() => setActiveTab(tab)}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                 activeTab === tab
-                  ? "bg-[#0A1628] text-white shadow-md"
-                  : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                  ? "bg-[#006B3C] text-white shadow-md"
+                  : "bg-white text-[#5a6a60] hover:bg-[#e8f5ee] border border-[#006B3C]/20"
               }`}
             >
               {tab === "event" ? (
@@ -62,7 +62,7 @@ export default function EventsNews() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-lift group"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#006B3C]/10 card-lift group"
               >
                 {/* Image placeholder */}
                 <div
@@ -74,11 +74,11 @@ export default function EventsNews() {
                 {/* Content */}
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="flex items-center gap-1.5 text-xs text-gray-400">
+                    <span className="flex items-center gap-1.5 text-xs text-[#5a6a60]">
                       <Tag size={12} />
                       {item.category}
                     </span>
-                    <span className="flex items-center gap-1.5 text-xs text-gray-400">
+                    <span className="flex items-center gap-1.5 text-xs text-[#5a6a60]">
                       <Clock size={12} />
                       {new Date(item.date).toLocaleDateString("en-BD", {
                         day: "numeric",
@@ -88,16 +88,16 @@ export default function EventsNews() {
                     </span>
                   </div>
 
-                  <h3 className="font-display text-base font-bold text-[#0A1628] mb-2 line-clamp-2 group-hover:text-[#1a3a6e] transition-colors">
+                  <h3 className="font-display text-base font-bold text-[#004D2C] mb-2 line-clamp-2 group-hover:text-[#006B3C] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-4">
+                  <p className="text-sm text-[#5a6a60] leading-relaxed line-clamp-3 mb-4">
                     {item.excerpt}
                   </p>
 
                   <Link
                     href="#"
-                    className="flex items-center gap-1.5 text-sm font-semibold text-[#C9A84C] hover:gap-2.5 transition-all duration-200"
+                    className="flex items-center gap-1.5 text-sm font-semibold text-[#D4A820] hover:text-[#B8912A] hover:gap-2.5 transition-all duration-200"
                   >
                     Read more <ArrowRight size={14} />
                   </Link>
@@ -111,7 +111,7 @@ export default function EventsNews() {
         <div className="text-center mt-10">
           <Link
             href="/notices"
-            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#0A1628] text-[#0A1628] font-semibold text-sm rounded-xl hover:bg-[#0A1628] hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#004D2C] text-[#004D2C] font-semibold text-sm rounded-xl hover:bg-[#004D2C] hover:text-white transition-all duration-300"
           >
             View All Notices &amp; Events <ArrowRight size={16} />
           </Link>

@@ -46,27 +46,27 @@ export default function HomePage() {
         className="py-16 sm:py-20 text-white text-center"
         style={{
           background:
-            "linear-gradient(135deg, #0A1628 0%, #1a3a6e 50%, #0A1628 100%)",
+            "linear-gradient(135deg, #011a0e 0%, #022c16 50%, #003821 100%)",
         }}
       >
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">
             Ready to Begin Your Journey?
           </h2>
-          <p className="text-gray-300 text-base sm:text-lg mb-8">
+          <p className="text-green-200 text-base sm:text-lg mb-8">
             Join thousands of successful graduates who started their story right here at BITC.
             Applications for Session 2025–26 are now open.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/admissions"
-              className="w-full sm:w-auto px-8 py-4 bg-[#C9A84C] text-[#0A1628] font-bold rounded-xl hover:bg-[#d4b96a] transition-colors shadow-lg"
+              className="w-full sm:w-auto px-8 py-4 bg-[#C41E1E] text-white font-bold rounded-xl hover:bg-[#9B1515] transition-colors shadow-lg"
             >
               Apply Now — Session 2025–26
             </a>
             <a
               href="/contact"
-              className="w-full sm:w-auto px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+              className="w-full sm:w-auto px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:border-[#D4A820] hover:text-[#F0D060] transition-colors"
             >
               Talk to Admission Desk
             </a>

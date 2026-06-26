@@ -16,13 +16,13 @@ export default function SectionHeader({
   return (
     <div className={`mb-12 ${centered ? "text-center" : "text-left"}`}>
       {eyebrow && (
-        <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C] mb-3">
+        <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#006B3C] mb-3">
           {eyebrow}
         </span>
       )}
       <h2
         className={`font-display text-3xl sm:text-4xl font-bold leading-tight mb-4 ${
-          light ? "text-white" : "text-[#0A1628]"
+          light ? "text-white" : "text-[#004D2C]"
         }`}
       >
         {title}
@@ -32,7 +32,7 @@ export default function SectionHeader({
         <p
           className={`mt-4 text-base sm:text-lg max-w-2xl leading-relaxed ${
             centered ? "mx-auto" : ""
-          } ${light ? "text-gray-300" : "text-gray-500"}`}
+          } ${light ? "text-green-200" : "text-[#5a6a60]"}`}
         >
           {subtitle}
         </p>

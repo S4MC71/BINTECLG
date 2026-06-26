@@ -19,70 +19,70 @@ const features = [
     title: "Modern Computer Labs",
     description:
       "Two state-of-the-art computer labs with 100+ high-performance workstations, licensed software, and high-speed internet.",
-    color: "#1e3a5f",
-    accent: "#3b6bba",
+    color: "#004D2C",
+    accent: "#006B3C",
   },
   {
     icon: BookMarked,
     title: "Digital Library",
     description:
       "15,000+ physical books, e-journals, and digital archives accessible 24/7 for all registered students.",
-    color: "#1e6b5f",
-    accent: "#34d399",
+    color: "#003821",
+    accent: "#D4A820",
   },
   {
     icon: Briefcase,
     title: "Placement Cell",
     description:
       "A dedicated career services unit connecting students with top employers through job fairs, CV clinics, and interview prep.",
-    color: "#5f1e4b",
-    accent: "#f472b6",
+    color: "#6b0f0f",
+    accent: "#C41E1E",
   },
   {
     icon: Award,
     title: "Scholarships",
     description:
       "Need-based and merit-based scholarships covering up to 100% of tuition for deserving and exceptional students.",
-    color: "#9e6900",
-    accent: "#C9A84C",
+    color: "#5c3f00",
+    accent: "#D4A820",
   },
   {
     icon: Wifi,
     title: "Campus-wide Wi-Fi",
     description:
       "High-speed fibre internet across the entire campus, ensuring students always stay connected for research and learning.",
-    color: "#3d1e5f",
-    accent: "#a78bfa",
+    color: "#004D2C",
+    accent: "#F0D060",
   },
   {
     icon: Shield,
     title: "Safe Campus",
     description:
       "24/7 security coverage with CCTV monitoring, trained guards, and a dedicated student safety committee.",
-    color: "#1e5f3d",
-    accent: "#4ade80",
+    color: "#003821",
+    accent: "#006B3C",
   },
   {
     icon: HeartHandshake,
     title: "Student Welfare",
     description:
       "Counseling services, mental health support, and a student welfare fund for those facing financial difficulties.",
-    color: "#5f3d1e",
-    accent: "#fb923c",
+    color: "#6b0f0f",
+    accent: "#f87171",
   },
   {
     icon: Coffee,
     title: "Student Lounge",
     description:
       "A spacious, comfortable lounge for students to relax, collaborate, and socialize between classes.",
-    color: "#1e3a5f",
-    accent: "#60a5fa",
+    color: "#004D2C",
+    accent: "#B8912A",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-[#f0f5fb]">
+    <section className="py-20 bg-[#f2faf6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Why BITC"
@@ -98,7 +98,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 overflow-hidden card-lift cursor-default"
+              className="group relative bg-white rounded-2xl p-6 shadow-sm border border-[#006B3C]/10 overflow-hidden card-lift cursor-default"
             >
               {/* Background hover fill */}
               <div
@@ -125,12 +125,12 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-base font-bold text-[#0A1628] group-hover:text-white mb-2 transition-colors duration-300">
+                <h3 className="font-display text-base font-bold text-[#004D2C] group-hover:text-white mb-2 transition-colors duration-300">
                   {title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-gray-500 group-hover:text-gray-200 leading-relaxed transition-colors duration-300">
+                <p className="text-sm text-[#5a6a60] group-hover:text-gray-200 leading-relaxed transition-colors duration-300">
                   {description}
                 </p>
               </div>

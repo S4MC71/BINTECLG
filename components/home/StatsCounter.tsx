@@ -18,7 +18,7 @@ const stats = [
     suffix: "+",
     label: "Proud Graduates",
     description: "Alumni working across industries",
-    color: "#C9A84C",
+    color: "#D4A820",
   },
   {
     icon: Users,
@@ -26,7 +26,7 @@ const stats = [
     suffix: "+",
     label: "Expert Faculty",
     description: "PhD holders & industry experts",
-    color: "#3b6bba",
+    color: "#006B3C",
   },
   {
     icon: BookOpen,
@@ -34,7 +34,7 @@ const stats = [
     suffix: "",
     label: "Academic Programs",
     description: "Nationally recognized degrees",
-    color: "#1e6b5f",
+    color: "#F0D060",
   },
   {
     icon: Building2,
@@ -42,7 +42,7 @@ const stats = [
     suffix: "+",
     label: "Student Clubs",
     description: "Cultural, sports & tech activities",
-    color: "#5f1e4b",
+    color: "#B8912A",
   },
   {
     icon: Trophy,
@@ -50,7 +50,7 @@ const stats = [
     suffix: "+",
     label: "Years of Excellence",
     description: "Serving students since 2003",
-    color: "#9e6900",
+    color: "#D4A820",
   },
   {
     icon: Star,
@@ -58,7 +58,7 @@ const stats = [
     suffix: "%",
     label: "Student Satisfaction",
     description: "Based on annual survey 2024",
-    color: "#5f3d1e",
+    color: "#006B3C",
   },
 ];
 
@@ -68,14 +68,14 @@ export default function StatsCounter() {
       className="py-24 relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, #0A1628 0%, #112550 50%, #0A1628 100%)",
+          "linear-gradient(135deg, #011a0e 0%, #022c16 50%, #011a0e 100%)",
       }}
     >
       {/* Background texture */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle, #C9A84C 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, #D4A820 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
         }}
       />
@@ -89,7 +89,7 @@ export default function StatsCounter() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C] mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D4A820] mb-3">
             Excellence in Numbers
           </span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -127,7 +127,7 @@ export default function StatsCounter() {
 
               {/* Label */}
               <div className="font-semibold text-white text-sm mb-1">{label}</div>
-              <div className="text-gray-500 text-xs leading-relaxed">{description}</div>
+              <div className="text-green-400/60 text-xs leading-relaxed">{description}</div>
 
               {/* Glow on hover */}
               <div

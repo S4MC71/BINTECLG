@@ -38,28 +38,28 @@ export default function Footer() {
 
   return (
     <footer>
-      {/* Main Footer */}
-      <div className="bg-[#0A1628] text-white">
+      {/* Main Footer — Darkest Green */}
+      <div className="bg-[#022c16] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
             {/* Column 1: Brand */}
             <div className="lg:col-span-1">
               <Link href="/" className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-[#C9A84C] flex items-center justify-center flex-shrink-0">
-                  <GraduationCap size={24} className="text-[#0A1628]" />
+                <div className="w-11 h-11 rounded-xl bg-[#D4A820] flex items-center justify-center flex-shrink-0">
+                  <GraduationCap size={24} className="text-[#022c16]" />
                 </div>
                 <div>
                   <div className="font-display text-xl font-bold text-white leading-tight">
                     BITC
                   </div>
-                  <div className="text-[10px] text-gray-400 leading-tight">
-                    Bangladesh Institute of Technology & Commerce
+                  <div className="text-[10px] text-green-300 leading-tight">
+                    Bangladesh Institute of Technology &amp; Commerce
                   </div>
                 </div>
               </Link>
 
-              <p className="text-gray-400 text-sm leading-relaxed mb-5">
+              <p className="text-green-300/80 text-sm leading-relaxed mb-5">
                 A premier National University–affiliated institution dedicated to academic
                 excellence, professional development, and producing leaders for tomorrow.
               </p>
@@ -69,7 +69,7 @@ export default function Footer() {
                   href="https://www.facebook.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#C9A84C] flex items-center justify-center transition-colors duration-200"
+                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#D4A820] flex items-center justify-center transition-colors duration-200"
                   aria-label="Facebook"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -80,7 +80,7 @@ export default function Footer() {
                   href="https://www.youtube.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#C9A84C] flex items-center justify-center transition-colors duration-200"
+                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#D4A820] flex items-center justify-center transition-colors duration-200"
                   aria-label="YouTube"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -90,9 +90,9 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Quick Links + Programs */}
+            {/* Column 2: Quick Links */}
             <div>
-              <h3 className="font-display text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-5">
+              <h3 className="font-display text-sm font-semibold text-[#D4A820] uppercase tracking-widest mb-5">
                 Quick Links
               </h3>
               <ul className="space-y-2.5">
@@ -100,7 +100,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#C9A84C] transition-colors duration-200 group"
+                      className="flex items-center gap-2 text-sm text-green-300/80 hover:text-[#D4A820] transition-colors duration-200 group"
                     >
                       <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0 duration-200" />
                       {link.label}
@@ -112,7 +112,7 @@ export default function Footer() {
 
             {/* Column 3: Programs + Portals */}
             <div>
-              <h3 className="font-display text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-5">
+              <h3 className="font-display text-sm font-semibold text-[#D4A820] uppercase tracking-widest mb-5">
                 Programs
               </h3>
               <ul className="space-y-2.5 mb-7">
@@ -120,7 +120,7 @@ export default function Footer() {
                   <li key={p.label}>
                     <Link
                       href={p.href}
-                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#C9A84C] transition-colors duration-200 group"
+                      className="flex items-center gap-2 text-sm text-green-300/80 hover:text-[#D4A820] transition-colors duration-200 group"
                     >
                       <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0 duration-200" />
                       {p.label}
@@ -128,7 +128,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-              <h3 className="font-display text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-4">
+              <h3 className="font-display text-sm font-semibold text-[#D4A820] uppercase tracking-widest mb-4">
                 NU Portals
               </h3>
               <ul className="space-y-2.5">
@@ -138,7 +138,7 @@ export default function Footer() {
                       href={p.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#C9A84C] transition-colors duration-200"
+                      className="flex items-center gap-1.5 text-sm text-green-300/80 hover:text-[#D4A820] transition-colors duration-200"
                     >
                       <ExternalLink size={11} />
                       {p.label}
@@ -150,41 +150,41 @@ export default function Footer() {
 
             {/* Column 4: Contact + Map */}
             <div>
-              <h3 className="font-display text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-5">
+              <h3 className="font-display text-sm font-semibold text-[#D4A820] uppercase tracking-widest mb-5">
                 Contact Us
               </h3>
               <ul className="space-y-4 mb-6">
                 <li className="flex items-start gap-3">
-                  <MapPin size={16} className="text-[#C9A84C] flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-400 leading-relaxed">
+                  <MapPin size={16} className="text-[#D4A820] flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-green-300/80 leading-relaxed">
                     123 College Road, Dhaka-1207<br />
                     Bangladesh
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone size={16} className="text-[#C9A84C] flex-shrink-0" />
-                  <a href="tel:+8801700000000" className="text-sm text-gray-400 hover:text-[#C9A84C] transition-colors">
+                  <Phone size={16} className="text-[#D4A820] flex-shrink-0" />
+                  <a href="tel:+8801700000000" className="text-sm text-green-300/80 hover:text-[#D4A820] transition-colors">
                     +880 1700-000000
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail size={16} className="text-[#C9A84C] flex-shrink-0" />
-                  <a href="mailto:info@bitc.edu.bd" className="text-sm text-gray-400 hover:text-[#C9A84C] transition-colors">
+                  <Mail size={16} className="text-[#D4A820] flex-shrink-0" />
+                  <a href="mailto:info@bitc.edu.bd" className="text-sm text-green-300/80 hover:text-[#D4A820] transition-colors">
                     info@bitc.edu.bd
                   </a>
                 </li>
               </ul>
 
               {/* Google Map Placeholder */}
-              <div className="rounded-xl overflow-hidden border border-white/10 h-36 bg-[#0d1f3c] flex items-center justify-center">
+              <div className="rounded-xl overflow-hidden border border-white/10 h-36 bg-[#011a0e] flex items-center justify-center">
                 <div className="text-center">
-                  <MapPin size={28} className="text-[#C9A84C] mx-auto mb-2" />
-                  <p className="text-xs text-gray-500">Interactive Map</p>
+                  <MapPin size={28} className="text-[#D4A820] mx-auto mb-2" />
+                  <p className="text-xs text-green-400">Interactive Map</p>
                   <a
                     href="https://maps.google.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs text-[#C9A84C] hover:underline"
+                    className="text-xs text-[#D4A820] hover:underline"
                   >
                     View on Google Maps →
                   </a>
@@ -196,10 +196,10 @@ export default function Footer() {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-[#050d18] text-gray-500 text-xs py-4 px-4">
+      <div className="bg-[#050d18] text-green-600/70 text-xs py-4 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>
-            © {currentYear} Bangladesh Institute of Technology & Commerce (BITC). All Rights Reserved.
+            © {currentYear} Bangladesh Institute of Technology &amp; Commerce (BITC). All Rights Reserved.
           </p>
           <p>
             Affiliated with{" "}
@@ -207,7 +207,7 @@ export default function Footer() {
               href="https://www.nu.ac.bd"
               target="_blank"
               rel="noreferrer"
-              className="text-[#C9A84C] hover:underline"
+              className="text-[#D4A820] hover:underline"
             >
               National University, Bangladesh
             </a>

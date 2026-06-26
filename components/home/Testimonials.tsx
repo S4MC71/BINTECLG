@@ -34,12 +34,12 @@ export default function Testimonials() {
     <section
       className="py-24 relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #f0f5fb 0%, #dce8f5 50%, #f0f5fb 100%)",
+        background: "linear-gradient(135deg, #e8f5ee 0%, #d0ead9 50%, #e8f5ee 100%)",
       }}
     >
-      {/* Decorative circle */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#C9A84C]/5 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#0A1628]/5 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      {/* Decorative circles */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#D4A820]/8 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#006B3C]/8 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -57,22 +57,22 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 relative overflow-hidden"
+              className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 relative overflow-hidden border border-[#006B3C]/10"
             >
               {/* Quote mark */}
-              <div className="absolute top-6 right-8 font-display text-[120px] leading-none text-[#C9A84C]/10 font-bold select-none pointer-events-none">
-                "
+              <div className="absolute top-6 right-8 font-display text-[120px] leading-none text-[#D4A820]/10 font-bold select-none pointer-events-none">
+                &ldquo;
               </div>
 
               {/* Stars */}
               <div className="flex items-center gap-1 mb-6">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={18} className="fill-[#C9A84C] text-[#C9A84C]" />
+                  <Star key={i} size={18} className="fill-[#D4A820] text-[#D4A820]" />
                 ))}
               </div>
 
               {/* Review */}
-              <p className="font-display text-xl sm:text-2xl text-[#0A1628] leading-relaxed italic mb-8 max-w-3xl">
+              <p className="font-display text-xl sm:text-2xl text-[#004D2C] leading-relaxed italic mb-8 max-w-3xl">
                 &ldquo;{t.review}&rdquo;
               </p>
 
@@ -87,11 +87,11 @@ export default function Testimonials() {
                 </div>
 
                 <div>
-                  <div className="font-bold text-[#0A1628]">{t.name}</div>
-                  <div className="text-sm text-[#C9A84C] font-medium">
+                  <div className="font-bold text-[#004D2C]">{t.name}</div>
+                  <div className="text-sm text-[#D4A820] font-medium">
                     {t.program} — {t.batch}
                   </div>
-                  <div className="text-xs text-gray-400">{t.currentRole}</div>
+                  <div className="text-xs text-[#5a6a60]">{t.currentRole}</div>
                 </div>
               </div>
             </motion.div>
@@ -110,8 +110,8 @@ export default function Testimonials() {
                   }}
                   className={`rounded-full transition-all duration-300 ${
                     i === current
-                      ? "w-8 h-2.5 bg-[#C9A84C]"
-                      : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
+                      ? "w-8 h-2.5 bg-[#006B3C]"
+                      : "w-2.5 h-2.5 bg-[#006B3C]/30 hover:bg-[#006B3C]/60"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -122,14 +122,14 @@ export default function Testimonials() {
             <div className="flex items-center gap-3">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-xl border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all duration-200"
+                className="w-10 h-10 rounded-xl border-2 border-[#006B3C]/20 flex items-center justify-center text-[#5a6a60] hover:border-[#D4A820] hover:text-[#D4A820] transition-all duration-200"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-xl border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all duration-200"
+                className="w-10 h-10 rounded-xl border-2 border-[#006B3C]/20 flex items-center justify-center text-[#5a6a60] hover:border-[#D4A820] hover:text-[#D4A820] transition-all duration-200"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />
@@ -149,8 +149,8 @@ export default function Testimonials() {
               }}
               className={`flex items-center gap-2.5 px-4 py-2 rounded-xl border transition-all duration-200 ${
                 i === current
-                  ? "border-[#C9A84C] bg-[#fdf8ee] shadow-sm"
-                  : "border-gray-200 bg-white hover:border-gray-300"
+                  ? "border-[#D4A820] bg-white shadow-sm"
+                  : "border-[#006B3C]/20 bg-white hover:border-[#006B3C]/40"
               }`}
             >
               <div
@@ -160,10 +160,10 @@ export default function Testimonials() {
                 {t.imageInitials}
               </div>
               <div className="text-left hidden sm:block">
-                <div className="text-xs font-semibold text-[#0A1628] leading-tight">
+                <div className="text-xs font-semibold text-[#004D2C] leading-tight">
                   {t.name.split(" ")[0]}
                 </div>
-                <div className="text-[10px] text-gray-400">{t.program}</div>
+                <div className="text-[10px] text-[#5a6a60]">{t.program}</div>
               </div>
             </button>
           ))}

@@ -6,11 +6,12 @@ import { ArrowRight } from "lucide-react";
 import { programs } from "@/data/programs";
 import SectionHeader from "@/components/ui/SectionHeader";
 
+// BITC-themed faculty colors using brand palette
 const facultyColors: Record<string, { bg: string; accent: string; text: string }> = {
-  "Business Studies": { bg: "#1e3a5f", accent: "#C9A84C", text: "#C9A84C" },
-  "Science & IT":    { bg: "#1e5f3d", accent: "#4ade80", text: "#4ade80" },
-  "Law":             { bg: "#3d1e5f", accent: "#c084fc", text: "#c084fc" },
-  "Education":       { bg: "#5f3d1e", accent: "#fb923c", text: "#fb923c" },
+  "Business Studies": { bg: "#004D2C", accent: "#D4A820", text: "#D4A820" },
+  "Science & IT":    { bg: "#003821", accent: "#F0D060", text: "#F0D060" },
+  "Law":             { bg: "#6b0f0f", accent: "#f87171", text: "#f87171" },
+  "Education":       { bg: "#B8912A", accent: "#F0D060", text: "#F0D060" },
 };
 
 export default function ProgramsGrid() {
@@ -25,7 +26,7 @@ export default function ProgramsGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((program, i) => {
-            const colors = facultyColors[program.faculty] || { bg: "#1e3a5f", accent: "#C9A84C", text: "#C9A84C" };
+            const colors = facultyColors[program.faculty] || { bg: "#004D2C", accent: "#D4A820", text: "#D4A820" };
 
             return (
               <motion.div
@@ -68,15 +69,15 @@ export default function ProgramsGrid() {
                       <h3 className="font-display text-lg font-bold text-white mb-2">
                         {program.shortName} — {program.faculty}
                       </h3>
-                      <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                      <p className="text-sm text-green-200/80 leading-relaxed mb-4">
                         {program.description}
                       </p>
                       <div className="grid grid-cols-2 gap-2 mb-4">
-                        <div className="text-xs text-gray-400">
+                        <div className="text-xs text-green-300/70">
                           <span className="block font-semibold text-white">Duration</span>
                           {program.duration}
                         </div>
-                        <div className="text-xs text-gray-400">
+                        <div className="text-xs text-green-300/70">
                           <span className="block font-semibold text-white">Credits</span>
                           {program.totalCredits} total
                         </div>
@@ -86,7 +87,7 @@ export default function ProgramsGrid() {
                     <Link
                       href={`/academics/${program.id}`}
                       className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 hover:gap-3"
-                      style={{ backgroundColor: colors.accent, color: "#0A1628" }}
+                      style={{ backgroundColor: colors.accent, color: "#022c16" }}
                     >
                       View Program
                       <ArrowRight size={15} />
@@ -103,18 +104,18 @@ export default function ProgramsGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: programs.length * 0.08 }}
-            className="h-72 rounded-2xl border-2 border-dashed border-[#C9A84C]/40 flex flex-col items-center justify-center p-8 bg-[#fdf8ee] hover:bg-[#C9A84C]/10 transition-colors duration-300 group"
+            className="h-72 rounded-2xl border-2 border-dashed border-[#006B3C]/30 flex flex-col items-center justify-center p-8 bg-[#e8f5ee] hover:bg-[#006B3C]/10 transition-colors duration-300 group"
           >
             <div className="text-4xl mb-4">🎓</div>
-            <h3 className="font-display text-lg font-bold text-[#0A1628] text-center mb-3">
+            <h3 className="font-display text-lg font-bold text-[#004D2C] text-center mb-3">
               Ready to Join Us?
             </h3>
-            <p className="text-sm text-gray-500 text-center mb-5">
+            <p className="text-sm text-[#5a6a60] text-center mb-5">
               Start your application today and take the first step toward your future.
             </p>
             <Link
               href="/admissions"
-              className="flex items-center gap-2 px-5 py-2.5 bg-[#C9A84C] text-[#0A1628] text-sm font-bold rounded-xl hover:bg-[#d4b96a] transition-colors group-hover:gap-3 duration-200"
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#C41E1E] text-white text-sm font-bold rounded-xl hover:bg-[#9B1515] transition-colors group-hover:gap-3 duration-200"
             >
               Apply Now <ArrowRight size={14} />
             </Link>

@@ -18,19 +18,19 @@ const highlights = [
     icon: Award,
     label: "Best College Award",
     sub: "National Education Summit 2025",
-    color: "#C9A84C",
+    color: "#D4A820",
   },
   {
     icon: Users,
     label: "5,000+ Alumni",
     sub: "Across industries & sectors",
-    color: "#1a3a6e",
+    color: "#006B3C",
   },
   {
     icon: BookOpen,
     label: "5 Programs",
     sub: "BBA, CSE, LLB, MBA, M.Ed",
-    color: "#1e6b5f",
+    color: "#004D2C",
   },
 ];
 
@@ -52,14 +52,14 @@ export default function AboutSnapshot() {
               centered={false}
             />
 
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#5a6a60] leading-relaxed mb-6">
               Established in 2003 and affiliated with National University, Bangladesh,
               BITC has grown into one of the most respected higher education institutions
               in the region. With over two decades of academic tradition, we combine
               quality education with holistic development.
             </p>
 
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-[#5a6a60] leading-relaxed mb-8">
               Our institution offers a diverse portfolio of programs designed in
               alignment with industry demands, preparing graduates who are not only
               academically proficient but also professionally ready to lead.
@@ -77,9 +77,9 @@ export default function AboutSnapshot() {
                 >
                   <CheckCircle2
                     size={18}
-                    className="text-[#C9A84C] flex-shrink-0 mt-0.5"
+                    className="text-[#006B3C] flex-shrink-0 mt-0.5"
                   />
-                  <span className="text-gray-600 text-sm">{item}</span>
+                  <span className="text-[#5a6a60] text-sm">{item}</span>
                 </motion.li>
               ))}
             </ul>
@@ -96,7 +96,7 @@ export default function AboutSnapshot() {
             {highlights.map(({ icon: Icon, label, sub, color }) => (
               <div
                 key={label}
-                className="flex items-center gap-5 p-6 rounded-2xl bg-[#f0f5fb] border border-gray-100 card-lift"
+                className="flex items-center gap-5 p-6 rounded-2xl bg-[#e8f5ee] border border-[#006B3C]/15 card-lift"
               >
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md"
@@ -105,20 +105,20 @@ export default function AboutSnapshot() {
                   <Icon size={26} className="text-white" />
                 </div>
                 <div>
-                  <div className="font-display text-lg font-bold text-[#0A1628]">
+                  <div className="font-display text-lg font-bold text-[#004D2C]">
                     {label}
                   </div>
-                  <div className="text-gray-500 text-sm">{sub}</div>
+                  <div className="text-[#5a6a60] text-sm">{sub}</div>
                 </div>
               </div>
             ))}
 
             {/* Quote box */}
-            <div className="p-6 rounded-2xl bg-[#0A1628] text-white">
-              <p className="font-display text-lg font-semibold italic text-[#C9A84C] mb-2">
-                "Committed to building futures, one student at a time."
+            <div className="p-6 rounded-2xl bg-[#022c16] text-white">
+              <p className="font-display text-lg font-semibold italic text-[#F0D060] mb-2">
+                &ldquo;Committed to building futures, one student at a time.&rdquo;
               </p>
-              <p className="text-gray-400 text-sm">— BITC Vision Statement</p>
+              <p className="text-green-300/70 text-sm">— BITC Vision Statement</p>
             </div>
           </motion.div>
         </div>
