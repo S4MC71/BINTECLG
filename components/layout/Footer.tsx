@@ -181,20 +181,18 @@ export default function Footer() {
                 </li>
               </ul>
 
-              {/* Google Map Placeholder */}
-              <div className="rounded-xl overflow-hidden border border-white/10 h-36 bg-[#011a0e] flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin size={28} className="text-[#D4A820] mx-auto mb-2" />
-                  <p className="text-xs text-green-400">Interactive Map</p>
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs text-[#D4A820] hover:underline"
-                  >
-                    View on Google Maps →
-                  </a>
-                </div>
+              {/* Google Map Embed */}
+              <div className="rounded-xl overflow-hidden border border-white/10 h-36">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d893.9821283068475!2d90.35344086089177!3d22.70179279502581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755343ce52a1173%3A0x997cc0e24d4dbdbd!2sBarisal%20Information%20Technology%20College%20(BITC)!5e0!3m2!1sen!2sbd!4v1782507352583!5m2!1sen!2sbd"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="BITC Location on Google Maps"
+                />
               </div>
             </div>
           </div>

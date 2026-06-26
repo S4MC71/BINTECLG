@@ -10,6 +10,7 @@ import {
   Download,
   ChevronRight,
   Bell,
+  X,
 } from "lucide-react";
 import { notices, type NoticeCategory, type NoticeDepartment } from "@/data/notices";
 import Link from "next/link";
@@ -25,6 +26,7 @@ export default function BitcNoticePage() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<NoticeCategory | "All">("All");
   const [activeDepartment, setActiveDepartment] = useState<NoticeDepartment | "All Departments">("All Departments");
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   const filtered = useMemo(() => {
     return notices.filter((n) => {
@@ -35,6 +37,9 @@ export default function BitcNoticePage() {
       return matchesSearch && matchesCategory && matchesDepartment;
     });
   }, [search, activeCategory, activeDepartment]);
+
+  const hasActiveFilters =
+    activeCategory !== "All" || activeDepartment !== "All Departments";
 
   return (
     <div className="min-h-screen bg-[#f2faf6]">
@@ -70,12 +75,156 @@ export default function BitcNoticePage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        {/* ── MOBILE: Search + Filter Toggle ── */}
+        <div className="lg:hidden mb-4">
+          {/* Search + Filter button row */}
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#5a6a60]" />
+              <input
+                type="text"
+                placeholder="Search notices..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-[#006B3C]/20 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-[#006B3C]/30 focus:border-[#006B3C] bg-white shadow-sm"
+              />
+            </div>
+            <button
+              onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
+              className="relative flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm transition-all duration-200"
+              style={{
+                background: mobileFilterOpen || hasActiveFilters
+                  ? "linear-gradient(135deg, #006B3C, #004D2C)"
+                  : "#ffffff",
+                border: mobileFilterOpen || hasActiveFilters
+                  ? "none"
+                  : "1px solid rgba(0,107,60,0.2)",
+              }}
+              aria-label="Toggle filters"
+            >
+              <Filter
+                size={18}
+                className={mobileFilterOpen || hasActiveFilters ? "text-white" : "text-[#5a6a60]"}
+              />
+              {/* Active filter dot */}
+              {hasActiveFilters && !mobileFilterOpen && (
+                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#D4A820]" />
+              )}
+            </button>
+          </div>
+
+          {/* Expandable Filter Panel */}
+          {mobileFilterOpen && (
+            <div className="mt-2 bg-white rounded-2xl border border-[#006B3C]/15 shadow-lg overflow-hidden">
+              {/* Panel Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-[#006B3C]/10">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#5a6a60]">
+                  Filters
+                </span>
+                <button
+                  onClick={() => setMobileFilterOpen(false)}
+                  className="text-xs font-semibold text-[#006B3C] hover:text-[#004D2C] transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+
+              <div className="px-4 py-4 space-y-5">
+                {/* Department chips */}
+                <div>
+                  <p className="text-xs font-semibold text-[#004D2C] mb-2.5">Department</p>
+                  <div className="flex flex-wrap gap-2">
+                    {DEPARTMENTS.map((dept) => (
+                      <button
+                        key={dept}
+                        onClick={() => setActiveDepartment(dept)}
+                        className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
+                        style={
+                          activeDepartment === dept
+                            ? { background: "linear-gradient(135deg, #006B3C, #004D2C)", color: "#fff" }
+                            : { background: "#e8f5ee", color: "#5a6a60" }
+                        }
+                      >
+                        {dept === "All Departments" ? "All Depts" : dept}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Category chips */}
+                <div>
+                  <p className="text-xs font-semibold text-[#004D2C] mb-2.5">Category</p>
+                  <div className="flex flex-wrap gap-2">
+                    {CATEGORIES.map((cat) => (
+                      <button
+                        key={cat}
+                        onClick={() => setActiveCategory(cat)}
+                        className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
+                        style={
+                          activeCategory === cat
+                            ? { background: "linear-gradient(135deg, #022c16, #006B3C)", color: "#fff" }
+                            : { background: "#e8f5ee", color: "#5a6a60" }
+                        }
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Reset */}
+                {hasActiveFilters && (
+                  <button
+                    onClick={() => {
+                      setActiveCategory("All");
+                      setActiveDepartment("All Departments");
+                    }}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-[#C41E1E] hover:text-[#9B1515] transition-colors"
+                  >
+                    <X size={12} /> Clear all filters
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Active filter tags */}
+          {hasActiveFilters && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {activeDepartment !== "All Departments" && (
+                <span
+                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold text-white"
+                  style={{ background: "#006B3C" }}
+                >
+                  {activeDepartment}
+                  <button onClick={() => setActiveDepartment("All Departments")}>
+                    <X size={10} />
+                  </button>
+                </span>
+              )}
+              {activeCategory !== "All" && (
+                <span
+                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold text-white"
+                  style={{ background: "#022c16" }}
+                >
+                  {activeCategory}
+                  <button onClick={() => setActiveCategory("All")}>
+                    <X size={10} />
+                  </button>
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* ── DESKTOP: Two-column layout ── */}
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Notice List */}
           <div className="flex-1 min-w-0">
-            {/* Search bar */}
-            <div className="relative mb-6">
+            {/* Desktop search bar */}
+            <div className="relative mb-6 hidden lg:block">
               <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5a6a60]" />
               <input
                 type="text"
@@ -109,21 +258,21 @@ export default function BitcNoticePage() {
                         : "border-[#006B3C]/10 hover:border-[#006B3C]/25"
                     }`}
                   >
-                    {/* Icon thumbnail */}
+                    {/* Icon */}
                     <div
-                      className="w-16 h-16 rounded-xl flex-shrink-0 flex items-center justify-center"
+                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex-shrink-0 flex items-center justify-center"
                       style={{ background: notice.isUrgent ? "#fef2f2" : "#e8f5ee" }}
                     >
                       {notice.isUrgent ? (
-                        <AlertCircle size={24} className="text-[#C41E1E]" />
+                        <AlertCircle size={22} className="text-[#C41E1E]" />
                       ) : (
-                        <FileText size={24} className="text-[#006B3C]" />
+                        <FileText size={22} className="text-[#006B3C]" />
                       )}
                     </div>
 
                     <div className="flex-1 min-w-0">
                       {/* Badges */}
-                      <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                      <div className="flex items-center gap-1.5 flex-wrap mb-1.5">
                         <span
                           className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full"
                           style={{ background: "#e8f5ee", color: "#006B3C" }}
@@ -158,7 +307,7 @@ export default function BitcNoticePage() {
                         </p>
                       )}
 
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 flex-wrap">
                         <button className="text-xs font-semibold text-[#006B3C] hover:text-[#004D2C] flex items-center gap-0.5 transition-colors">
                           Read Details <ChevronRight size={12} />
                         </button>
@@ -185,9 +334,9 @@ export default function BitcNoticePage() {
             )}
           </div>
 
-          {/* Sidebar */}
-          <aside className="w-full lg:w-72 flex-shrink-0 space-y-5">
-            {/* Search Notices */}
+          {/* ── DESKTOP Sidebar ── */}
+          <aside className="hidden lg:flex w-72 flex-shrink-0 flex-col gap-5">
+            {/* Search */}
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-[#006B3C]/10">
               <h3 className="font-semibold text-[#004D2C] text-sm mb-3 flex items-center gap-2">
                 <Search size={15} className="text-[#006B3C]" />
@@ -263,7 +412,7 @@ export default function BitcNoticePage() {
               </div>
             </div>
 
-            {/* NU Notice quick link */}
+            {/* NU Quick link */}
             <div
               className="rounded-2xl p-5 text-white text-center"
               style={{ background: "linear-gradient(135deg, #022c16, #004D2C)" }}

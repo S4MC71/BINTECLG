@@ -78,19 +78,18 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Map placeholder */}
-              <div className="rounded-2xl overflow-hidden border border-[#006B3C]/15 h-56 bg-[#e8f5ee] flex flex-col items-center justify-center">
-                <MapPin size={36} className="text-[#006B3C] mb-2" />
-                <p className="text-sm text-[#5a6a60] font-medium">Google Maps</p>
-                <p className="text-xs text-[#5a6a60]/70 mb-3">College Road, Barisal-8200</p>
-                <a
-                  href="https://maps.google.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs text-[#D4A820] font-semibold hover:text-[#B8912A] hover:underline"
-                >
-                  Open in Google Maps →
-                </a>
+              {/* Google Map Embed */}
+              <div className="rounded-2xl overflow-hidden border border-[#006B3C]/15 h-56">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d893.9821283068475!2d90.35344086089177!3d22.70179279502581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755343ce52a1173%3A0x997cc0e24d4dbdbd!2sBarisal%20Information%20Technology%20College%20(BITC)!5e0!3m2!1sen!2sbd!4v1782507352583!5m2!1sen!2sbd"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="BITC Location on Google Maps"
+                />
               </div>
             </div>
 
