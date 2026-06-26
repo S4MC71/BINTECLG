@@ -40,7 +40,14 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Admissions", href: "/admissions" },
-  { label: "Notice Board", href: "/notices" },
+  {
+    label: "Notice Board",
+    href: "/notices",
+    dropdown: [
+      { label: "BITC Notice", href: "/notices/bitc" },
+      { label: "NU Official Notice", href: "/notices/nu" },
+    ],
+  },
   { label: "Campus Life", href: "/campus-life" },
   { label: "Alumni", href: "/alumni" },
   {
