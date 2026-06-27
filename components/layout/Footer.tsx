@@ -59,13 +59,13 @@ export default function Footer() {
                   <div className="font-display text-xl font-bold text-white leading-tight">
                     BITC
                   </div>
-                  <div className="text-[10px] text-green-300 leading-tight">
+                  <div className="text-[10px] text-neutral-300 leading-tight">
                     Barisal Information Technology College
                   </div>
                 </div>
               </Link>
 
-              <p className="text-green-300/80 text-sm leading-relaxed mb-5">
+              <p className="text-neutral-300 text-sm leading-relaxed mb-5">
                 A premier National University–affiliated institution in Barisal dedicated to academic
                 excellence, professional development, and producing leaders for tomorrow.
               </p>
@@ -106,7 +106,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="flex items-center gap-2 text-sm text-green-300/80 hover:text-[#D4A820] transition-colors duration-200 group"
+                      className="flex items-center gap-2 text-sm text-neutral-300 hover:text-[#D4A820] transition-colors duration-200 group"
                     >
                       <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0 duration-200" />
                       {link.label}
@@ -126,7 +126,7 @@ export default function Footer() {
                   <li key={p.label}>
                     <Link
                       href={p.href}
-                      className="flex items-center gap-2 text-sm text-green-300/80 hover:text-[#D4A820] transition-colors duration-200 group"
+                      className="flex items-center gap-2 text-sm text-neutral-300 hover:text-[#D4A820] transition-colors duration-200 group"
                     >
                       <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0 duration-200" />
                       {p.label}
@@ -144,7 +144,7 @@ export default function Footer() {
                       href={p.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-green-300/80 hover:text-[#D4A820] transition-colors duration-200"
+                      className="flex items-center gap-1.5 text-sm text-neutral-300 hover:text-[#D4A820] transition-colors duration-200"
                     >
                       <ExternalLink size={11} />
                       {p.label}
@@ -162,20 +162,20 @@ export default function Footer() {
               <ul className="space-y-4 mb-6">
                 <li className="flex items-start gap-3">
                   <MapPin size={16} className="text-[#D4A820] flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-green-300/80 leading-relaxed">
+                  <span className="text-sm text-neutral-300 leading-relaxed">
                     College Road, Barisal-8200<br />
                     Bangladesh
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="text-[#D4A820] flex-shrink-0" />
-                  <a href="tel:+8801700000000" className="text-sm text-green-300/80 hover:text-[#D4A820] transition-colors">
+                  <a href="tel:+8801700000000" className="text-sm text-neutral-300 hover:text-[#D4A820] transition-colors">
                     +880 1700-000000
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail size={16} className="text-[#D4A820] flex-shrink-0" />
-                  <a href="mailto:info@bitc.edu.bd" className="text-sm text-green-300/80 hover:text-[#D4A820] transition-colors">
+                  <a href="mailto:info@bitc.edu.bd" className="text-sm text-neutral-300 hover:text-[#D4A820] transition-colors">
                     info@bitc.edu.bd
                   </a>
                 </li>
@@ -200,7 +200,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-[#050d18] text-green-600/70 text-xs py-4 px-4">
+      <div className="bg-[#050d18] text-neutral-400/80 text-xs py-4 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>
             © {currentYear} Barisal Information Technology College (BITC). All Rights Reserved.
