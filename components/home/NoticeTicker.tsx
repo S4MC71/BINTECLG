@@ -2,16 +2,17 @@
 
 import { AlertCircle, Bell } from "lucide-react";
 import { tickerNotices } from "@/data/notices";
+import Link from "next/link";
 
 export default function NoticeTicker() {
   // Duplicate array to create seamless infinite loop
   const items = [...tickerNotices, ...tickerNotices];
 
   return (
-    <div
-      className="bg-white border-b border-[#006B3C]/20 overflow-hidden"
+    <Link
+      href="/notices"
+      className="block bg-white border-b border-[#006B3C]/20 overflow-hidden hover:bg-neutral-50/50 transition-colors"
       aria-label="Latest notices ticker"
-      role="marquee"
     >
       <div className="flex items-stretch h-10">
         {/* Label badge — Crimson Red */}
@@ -34,7 +35,7 @@ export default function NoticeTicker() {
             {items.map((notice, index) => (
               <span
                 key={`${notice.id}-${index}`}
-                className="inline-flex items-center gap-2 pr-10 text-xs sm:text-sm text-[#1a2e22] cursor-pointer hover:text-[#006B3C] transition-colors whitespace-nowrap leading-10"
+                className="inline-flex items-center gap-2 pr-10 text-xs sm:text-sm text-[#1a2e22] hover:text-[#006B3C] transition-colors whitespace-nowrap leading-10"
               >
                 {notice.isUrgent ? (
                   <AlertCircle size={11} className="text-[#C41E1E] flex-shrink-0" aria-hidden="true" />
@@ -68,6 +69,6 @@ export default function NoticeTicker() {
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
