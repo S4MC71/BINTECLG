@@ -8,6 +8,7 @@ import ProgramsGrid from "@/components/home/ProgramsGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import EventsNews from "@/components/home/EventsNews";
 import Testimonials from "@/components/home/Testimonials";
+import DevelopmentNotice from "@/components/ui/DevelopmentNotice";
 
 export const metadata: Metadata = {
   title: "BITC — Barisal Information Technology College | Home",
