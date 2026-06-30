@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import NoticeTicker from "@/components/home/NoticeTicker";
 import Footer from "@/components/layout/Footer";
+import DevelopmentNotice from "@/components/ui/DevelopmentNotice";
 
 export const metadata: Metadata = {
   title: {
@@ -53,6 +54,7 @@ export default function RootLayout({
 
         <main className="flex-1">{children}</main>
         <Footer />
+        <DevelopmentNotice />
       </body>
     </html>
   );

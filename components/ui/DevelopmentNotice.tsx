@@ -8,6 +8,12 @@ export default function DevelopmentNotice() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Check if user has already dismissed the notice in this session
+    if (typeof window !== "undefined") {
+      const isDismissed = window.sessionStorage.getItem("bitc-dev-notice-dismissed");
+      if (isDismissed === "true") return;
+    }
+
     // Show after 1.5 seconds for a premium, delayed entry
     const showTimeout = setTimeout(() => {
       setIsVisible(true);
@@ -16,6 +22,9 @@ export default function DevelopmentNotice() {
     // Auto-dismiss after 8 seconds of visibility (9.5 seconds total)
     const dismissTimeout = setTimeout(() => {
       setIsVisible(false);
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem("bitc-dev-notice-dismissed", "true");
+      }
     }, 9500);
 
     return () => {
@@ -23,6 +32,13 @@ export default function DevelopmentNotice() {
       clearTimeout(dismissTimeout);
     };
   }, []);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem("bitc-dev-notice-dismissed", "true");
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -48,7 +64,7 @@ export default function DevelopmentNotice() {
           </div>
 
           <button
-            onClick={() => setIsVisible(false)}
+            onClick={handleClose}
             className="p-1 rounded-lg text-green-300/60 hover:text-white hover:bg-white/10 transition-all cursor-pointer flex-shrink-0"
             aria-label="Close notification"
           >
