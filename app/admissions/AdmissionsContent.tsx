@@ -608,14 +608,13 @@ export default function AdmissionsContent() {
         </div>
       </section>
 
-      {/* Admission Desk — darkest green */}
-      <section className="py-20 bg-[#022c16] text-white">
+      {/* Admission Desk — light green background to separate from dark footer */}
+      <section className="py-20 bg-[#f2faf6]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <SectionHeader
             eyebrow="Need Help?"
             title="Admission Desk"
             subtitle="Our friendly admission team is here to answer all your questions."
-            light
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -643,11 +642,11 @@ export default function AdmissionsContent() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="block bg-white/10 rounded-2xl p-5 border border-white/10 hover:bg-white/20 transition-all duration-200 hover:scale-[1.02] cursor-pointer text-center"
+                className="block bg-white rounded-2xl p-5 border border-[#006B3C]/10 shadow-sm hover:shadow-md hover:border-[#D4A820]/30 hover:scale-[1.02] transition-all duration-200 cursor-pointer text-center"
               >
-                <Icon className="text-[#D4A820] w-6 h-6 mx-auto mb-3" />
-                <p className="text-xs text-green-300/60 mb-1">{label}</p>
-                <p className="font-semibold text-white">{value}</p>
+                <Icon className="text-[#006B3C] w-6 h-6 mx-auto mb-3" />
+                <p className="text-xs text-[#5a6a60] mb-1">{label}</p>
+                <p className="font-bold text-[#004D2C]">{value}</p>
               </a>
             ))}
           </div>

@@ -128,14 +128,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Advisory Board — darkest green */}
-      <section className="py-20 bg-[#022c16] text-white">
+      {/* Advisory Board — light green background to separate from dark footer */}
+      <section className="py-20 bg-[#f2faf6]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Administration"
             title="Advisory Board"
             subtitle="Dedicated leaders steering BITC toward its mission of excellence."
-            light
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -146,15 +145,15 @@ export default function AboutPage() {
               { name: "Ms. Farida Yasmin", role: "Registrar", initials: "FY", color: "#C41E1E" },
               { name: "Mr. Rafiq Ahmed", role: "Controller of Examinations", initials: "RA", color: "#006B3C" },
             ].map((p) => (
-              <div key={p.name} className="bg-white/10 rounded-2xl p-5 text-center border border-white/10 hover:border-[#D4A820]/30 transition-colors">
+              <div key={p.name} className="bg-white rounded-2xl p-5 text-center border border-[#006B3C]/10 shadow-sm hover:shadow-md hover:border-[#D4A820]/30 transition-all duration-200">
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg mx-auto mb-3 text-white"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg mx-auto mb-3 text-white shadow-sm"
                   style={{ backgroundColor: p.color }}
                 >
                   {p.initials}
                 </div>
-                <h3 className="font-display text-sm font-bold text-white mb-1">{p.name}</h3>
-                <p className="text-xs text-[#D4A820]">{p.role}</p>
+                <h3 className="font-display text-sm font-bold text-[#004D2C] mb-1">{p.name}</h3>
+                <p className="text-xs text-[#a37e1a] font-medium">{p.role}</p>
               </div>
             ))}
           </div>

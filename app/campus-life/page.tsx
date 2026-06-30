@@ -137,14 +137,13 @@ export default function CampusLifePage() {
         </div>
       </section>
 
-      {/* Student Welfare — darkest green */}
-      <section className="py-20 bg-[#022c16] text-white">
+      {/* Student Welfare — light green background to separate from dark footer */}
+      <section className="py-20 bg-[#f2faf6]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Welfare"
             title="Student Welfare Services"
             subtitle="We care about your complete well-being — academic, professional, and personal."
-            light
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -153,9 +152,9 @@ export default function CampusLifePage() {
               { title: "Mental Health Support", desc: "Confidential counseling services and mental health workshops to help students manage stress and maintain well-being." },
               { title: "Financial Aid", desc: "A student welfare fund provides emergency financial assistance to students facing unexpected hardships." },
             ].map((item) => (
-              <div key={item.title} className="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-[#D4A820]/30 transition-colors">
-                <h3 className="font-display text-lg font-bold text-[#D4A820] mb-2">{item.title}</h3>
-                <p className="text-green-200/80 text-sm leading-relaxed">{item.desc}</p>
+              <div key={item.title} className="bg-white rounded-2xl p-6 border border-[#006B3C]/10 shadow-sm hover:shadow-md hover:border-[#D4A820]/30 transition-all duration-200">
+                <h3 className="font-display text-lg font-bold text-[#004D2C] mb-2">{item.title}</h3>
+                <p className="text-[#5a6a60] text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
