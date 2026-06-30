@@ -608,47 +608,59 @@ export default function AdmissionsContent() {
         </div>
       </section>
 
-      {/* Admission Desk — light green background to separate from dark footer */}
-      <section className="py-20 bg-[#f2faf6]">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <SectionHeader
-            eyebrow="Need Help?"
-            title="Admission Desk"
-            subtitle="Our friendly admission team is here to answer all your questions."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { 
-                icon: (props: any) => <Phone {...props} />, 
-                label: "Hotline", 
-                value: "+880 1700-000000", 
-                href: "tel:+8801700000000" 
-              },
-              { 
-                icon: MessageCircleMore, 
-                label: "WhatsApp", 
-                value: "+880 1800-000000", 
-                href: "https://wa.me/8801800000000" 
-              },
-              { 
-                icon: (props: any) => <Mail {...props} />, 
-                label: "Email", 
-                value: "admission@bitc.edu.bd", 
-                href: "mailto:admission@bitc.edu.bd" 
-              },
-            ].map(({ icon: Icon, label, value, href }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="block bg-white rounded-2xl p-5 border border-[#006B3C]/10 shadow-sm hover:shadow-md hover:border-[#D4A820]/30 hover:scale-[1.02] transition-all duration-200 cursor-pointer text-center"
-              >
-                <Icon className="text-[#006B3C] w-6 h-6 mx-auto mb-3" />
-                <p className="text-xs text-[#5a6a60] mb-1">{label}</p>
-                <p className="font-bold text-[#004D2C]">{value}</p>
-              </a>
-            ))}
+      {/* Admission Desk — styled like the homepage CTA box */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div
+            className="rounded-2xl p-10 sm:p-14 text-white shadow-xl border border-green-900/10"
+            style={{
+              background:
+                "linear-gradient(135deg, #011a0e 0%, #022c16 50%, #003821 100%)",
+            }}
+          >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#F0D060] mb-4">
+              Need Help?
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+              Admission Desk
+            </h2>
+            <p className="text-green-200 text-sm sm:text-base mb-10 max-w-2xl mx-auto">
+              Our friendly admission team is here to answer all your questions.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {[
+                { 
+                  icon: (props: any) => <Phone {...props} />, 
+                  label: "Hotline", 
+                  value: "+880 1700-000000", 
+                  href: "tel:+8801700000000" 
+                },
+                { 
+                  icon: MessageCircleMore, 
+                  label: "WhatsApp", 
+                  value: "+880 1800-000000", 
+                  href: "https://wa.me/8801800000000" 
+                },
+                { 
+                  icon: (props: any) => <Mail {...props} />, 
+                  label: "Email", 
+                  value: "admission@bitc.edu.bd", 
+                  href: "mailto:admission@bitc.edu.bd" 
+                },
+              ].map(({ icon: Icon, label, value, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="block bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-sm hover:shadow-md hover:border-[#D4A820]/30 hover:scale-[1.02] transition-all duration-200 cursor-pointer text-center group text-decoration-none"
+                >
+                  <Icon className="text-[#F0D060] w-7 h-7 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                  <p className="text-xs text-green-200/70 mb-1 font-semibold">{label}</p>
+                  <p className="font-bold text-white text-base sm:text-lg">{value}</p>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
