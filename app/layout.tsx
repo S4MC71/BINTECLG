@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import NoticeTicker from "@/components/home/NoticeTicker";
 import Footer from "@/components/layout/Footer";
 import DevelopmentNotice from "@/components/ui/DevelopmentNotice";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -44,6 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <ScrollToTop />
         {/* Sticky Navbar */}
         <Navbar />
 

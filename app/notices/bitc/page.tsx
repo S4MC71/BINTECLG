@@ -8,14 +8,14 @@ export const metadata = {
   description: "Stay informed with the latest academic, exam, result, and event announcements from Barisal Information Technology College.",
 };
 
-// Next.js ISR configuration
-export const revalidate = 3600; // Hourly fallback revalidation
+// Disable static caching on the Next.js server to ensure real-time notice updates
+export const revalidate = 0; 
 
 async function getNotices(): Promise<Notice[]> {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.bitc.edu.bd";
   try {
     const res = await fetch(`${backendUrl}/api/notices`, {
-      next: { revalidate: 3600, tags: ["notices-bitc"] },
+      cache: "no-store", // Bypass all Next.js caching to fetch fresh notices dynamically
     });
     if (!res.ok) {
       throw new Error("Failed to fetch notices");
